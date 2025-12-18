@@ -3,22 +3,14 @@ import { useForm } from "react-hook-form";
 import "./Form.css";
 
 export function Form({ onAddPerson }) {
-  const form = useForm();
-
-  const nameField = form.register("name");
+  const { register } = useForm();
 
   return (
     <>
       <h1>Formularz dodawania osoby:</h1>
       <form autoComplete="off">
         <label htmlFor="name">Imię</label>
-        <input
-          id="name"
-          name={nameField.name}
-          onBlur={nameField.onBlur}
-          onChange={nameField.onChange}
-          ref={nameField.ref}
-        />
+        <input id="name" {...register("name")} />
 
         <label htmlFor="age">Wiek</label>
         <input id="age" type="number" />
