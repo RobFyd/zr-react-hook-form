@@ -5,10 +5,14 @@ import "./Form.css";
 export function Form({ onAddPerson }) {
   const { register } = useForm();
 
+  const onSubmit(e) {
+    e.preventDefault();
+  }
+
   return (
     <>
       <h1>Formularz dodawania osoby:</h1>
-      <form autoComplete="off">
+      <form onSubmit={onSubmit} autoComplete="off">
         <label htmlFor="name">Imię</label>
         <input id="name" {...register("name")} />
 
