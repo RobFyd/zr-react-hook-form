@@ -3,19 +3,19 @@ import { useForm } from "react-hook-form";
 import "./Form.css";
 
 export function Form({ onAddPerson }) {
-  const { register, getValues } = useForm();
+  const { register, handleSubmit } = useForm();
 
-  function onSubmit(e) {
-    e.preventDefault();
-    const formValues = getValues();
-    console.log(formValues);
-    onAddPerson(formValues);
+  function onSubmit(data) {
+    console.log(data);
+    onAddPerson(data);
   }
+
+  const handleSubmitFn = handleSubmit((data) => onSubmit(data));
 
   return (
     <>
       <h1>Formularz dodawania osoby:</h1>
-      <form onSubmit={onSubmit} autoComplete="off">
+      <form onSubmit={handleSubmitFn} autoComplete="off">
         <label htmlFor="name">Imię</label>
         <input id="name" {...register("name")} />
 
