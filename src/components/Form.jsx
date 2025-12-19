@@ -19,13 +19,17 @@ export function Form({ onAddPerson }) {
         <input id="name" {...register("name")} />
 
         <label htmlFor="age">Wiek</label>
-        <input id="age" type="number" />
+        <input
+          id="age"
+          type="number"
+          {...register("age", { valueAsNumber: true })}
+        />
 
         <label htmlFor="tel">Telefon</label>
-        <input id="tel" type="tel" />
+        <input id="tel" type="tel" {...register("tel")} />
 
         <label htmlFor="email">E-mail</label>
-        <input id="email" type="email" />
+        <input id="email" type="email" {...register("email")} />
 
         <label htmlFor="isInvoiceRequired">
           <input
@@ -35,7 +39,7 @@ export function Form({ onAddPerson }) {
           />
           Faktura VAT
         </label>
-        <input id="nip" />
+        <input id="nip" {...register("nip")} />
 
         <div className="footer">
           <button>Dodaj</button>
