@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import "./Form.css";
 
 export function Form({ onAddPerson }) {
-  const { register } = useForm();
+  const { register, getValues } = useForm();
 
-  const onSubmit(e) {
+  function onSubmit(e) {
     e.preventDefault();
+    const formValues = getValues();
+    console.log(formValues);
   }
 
   return (
