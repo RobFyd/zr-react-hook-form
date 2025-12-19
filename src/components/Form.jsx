@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import "./Form.css";
 
 export function Form({ onAddPerson }) {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState } = useForm();
 
   function onSubmit(data) {
     console.log(data);
@@ -16,6 +16,9 @@ export function Form({ onAddPerson }) {
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
         <label htmlFor="name">Imię</label>
         <input id="name" {...register("name", { required: true })} />
+        {formState.errors.name && (
+          <span className="error">To pole jest wymagane</span>
+        )}
 
         <label htmlFor="age">Wiek</label>
         <input
