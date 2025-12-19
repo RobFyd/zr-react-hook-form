@@ -10,12 +10,10 @@ export function Form({ onAddPerson }) {
     onAddPerson(data);
   }
 
-  const handleSubmitFn = handleSubmit((data) => onSubmit(data));
-
   return (
     <>
       <h1>Formularz dodawania osoby:</h1>
-      <form onSubmit={handleSubmitFn} autoComplete="off">
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
         <label htmlFor="name">Imię</label>
         <input id="name" {...register("name")} />
 
