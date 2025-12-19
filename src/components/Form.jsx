@@ -9,6 +9,7 @@ export function Form({ onAddPerson }) {
     e.preventDefault();
     const formValues = getValues();
     console.log(formValues);
+    onAddPerson(formValues);
   }
 
   return (
