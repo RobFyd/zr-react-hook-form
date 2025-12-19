@@ -15,7 +15,7 @@ export function Form({ onAddPerson }) {
       <h1>Formularz dodawania osoby:</h1>
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
         <label htmlFor="name">Imię</label>
-        <input id="name" {...register("name")} />
+        <input id="name" {...register("name", { required: true })} />
 
         <label htmlFor="age">Wiek</label>
         <input
