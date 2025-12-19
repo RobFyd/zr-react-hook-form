@@ -31,7 +31,7 @@ export function Form({ onAddPerson }) {
         <label htmlFor="email">E-mail</label>
         <input id="email" type="email" {...register("email")} />
 
-        <label htmlFor="isInvoiceRequired">
+        {/* <label htmlFor="isInvoiceRequired">
           <input
             id="isInvoiceRequired"
             type="checkbox"
@@ -39,7 +39,7 @@ export function Form({ onAddPerson }) {
           />
           Faktura VAT
         </label>
-        <input id="nip" {...register("nip")} />
+        <input id="nip" /> */}
 
         <div className="footer">
           <button>Dodaj</button>
