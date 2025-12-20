@@ -24,7 +24,12 @@ export function Form({ onAddPerson }) {
         <input
           id="age"
           type="number"
-          {...register("age", { valueAsNumber: true, required: true })}
+          {...register("age", {
+            valueAsNumber: true,
+            required: true,
+            min: 18,
+            max: 120,
+          })}
         />
         {formState.errors.age && (
           <span className="error">To pole jest wymagane</span>
