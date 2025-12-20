@@ -31,8 +31,14 @@ export function Form({ onAddPerson }) {
             max: 120,
           })}
         />
-        {formState.errors.age && (
+        {formState.errors.age && formState.errors.age.type === "required" && (
           <span className="error">To pole jest wymagane</span>
+        )}
+        {formState.errors.age && formState.errors.age.type === "max" && (
+          <span className="error">Maksymalny wiek to 120 lat</span>
+        )}
+        {formState.errors.age && formState.errors.age.type === "min" && (
+          <span className="error">Minimalny wiek to 18 lat</span>
         )}
 
         <label htmlFor="tel">Telefon</label>
