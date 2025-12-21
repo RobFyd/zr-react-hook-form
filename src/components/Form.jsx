@@ -46,6 +46,10 @@ export function Form({ onAddPerson }) {
           type="tel"
           {...register("tel", {
             required: "To pole jest wymagane",
+            pattern: {
+              value: /^[+][0-9]{9,15}$/,
+              message: "Nieprawidłowy format numeru telefonu",
+            },
           })}
         />
         {errors.tel && <span className="error">{errors.tel.message}</span>}
