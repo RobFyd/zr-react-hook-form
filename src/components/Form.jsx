@@ -17,7 +17,7 @@ export function Form({ onAddPerson }) {
   return (
     <>
       <h1>Formularz dodawania osoby:</h1>
-      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+      <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
         <label htmlFor="name">Imię</label>
         <input
           id="name"
@@ -60,10 +60,8 @@ export function Form({ onAddPerson }) {
           type="email"
           {...register("email", {
             required: "To pole jest wymagane",
-            pattern: {
-              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: "Nieprawidłowy format adresu e-mail",
-            },
+            validate: (email) =>
+              email.includes("@") || "Nieprawidłowy format adresu e-mail",
           })}
         />
         {errors.email && <span className="error">{errors.email.message}</span>}
