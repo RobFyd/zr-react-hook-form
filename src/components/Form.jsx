@@ -41,7 +41,14 @@ export function Form({ onAddPerson }) {
         {errors.age && <span className="error">{errors.age.message}</span>}
 
         <label htmlFor="tel">Telefon</label>
-        <input id="tel" type="tel" {...register("tel")} />
+        <input
+          id="tel"
+          type="tel"
+          {...register("tel", {
+            required: "To pole jest wymagane",
+          })}
+        />
+        {errors.tel && <span className="error">{errors.tel.message}</span>}
 
         <label htmlFor="email">E-mail</label>
         <input id="email" type="email" {...register("email")} />
