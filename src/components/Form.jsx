@@ -19,8 +19,13 @@ export function Form({ onAddPerson }) {
       <h1>Formularz dodawania osoby:</h1>
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
         <label htmlFor="name">Imię</label>
-        <input id="name" {...register("name", { required: true })} />
-        {errors.name && <span className="error">To pole jest wymagane</span>}
+        <input
+          id="name"
+          {...register("name", {
+            required: { value: true, message: "To pole jest wymagane" },
+          })}
+        />
+        {errors.name && <span className="error">{errors.name.message}</span>}
 
         <label htmlFor="age">Wiek</label>
         <input
