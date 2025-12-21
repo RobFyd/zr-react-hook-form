@@ -55,7 +55,18 @@ export function Form({ onAddPerson }) {
         {errors.tel && <span className="error">{errors.tel.message}</span>}
 
         <label htmlFor="email">E-mail</label>
-        <input id="email" type="email" {...register("email")} />
+        <input
+          id="email"
+          type="email"
+          {...register("email", {
+            required: "To pole jest wymagane",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Nieprawidłowy format adresu e-mail",
+            },
+          })}
+        />
+        {errors.email && <span className="error">{errors.email.message}</span>}
 
         {/* <label htmlFor="isInvoiceRequired">
           <input
