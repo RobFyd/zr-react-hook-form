@@ -3,7 +3,11 @@ import { useForm } from "react-hook-form";
 import "./Form.css";
 
 export function Form({ onAddPerson }) {
-  const { register, handleSubmit, formState: { errors }   } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   function onSubmit(data) {
     console.log(data);
@@ -16,9 +20,7 @@ export function Form({ onAddPerson }) {
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
         <label htmlFor="name">Imię</label>
         <input id="name" {...register("name", { required: true })} />
-        {errors.name && (
-          <span className="error">To pole jest wymagane</span>
-        )}
+        {errors.name && <span className="error">To pole jest wymagane</span>}
 
         <label htmlFor="age">Wiek</label>
         <input
@@ -26,20 +28,12 @@ export function Form({ onAddPerson }) {
           type="number"
           {...register("age", {
             valueAsNumber: true,
-            required: true,
-            min: 18,
-            max: 120,
+            required: { value: true, message: "To pole jest wymagane" },
+            min: { value: 18, message: "Minimalny wiek to 18 lat" },
+            max: { value: 120, message: "Maksymalny wiek to 120 lat" },
           })}
         />
-        {errors.age?.type === "required" && (
-          <span className="error">To pole jest wymagane</span>
-        )}
-        {errors.age?.type === "max" && (
-          <span className="error">Maksymalny wiek to 120 lat</span>
-        )}
-        {errors.age?.type === "min" && (
-          <span className="error">Minimalny wiek to 18 lat</span>
-        )}
+        {errors.age && <span className="error">{errors.age.message}</span>}
 
         <label htmlFor="tel">Telefon</label>
         <input id="tel" type="tel" {...register("tel")} />
