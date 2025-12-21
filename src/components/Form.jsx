@@ -66,7 +66,7 @@ export function Form({ onAddPerson }) {
         />
         {errors.email && <span className="error">{errors.email.message}</span>}
 
-        {/* <label htmlFor="isInvoiceRequired">
+        <label htmlFor="isInvoiceRequired">
           <input
             id="isInvoiceRequired"
             type="checkbox"
@@ -74,7 +74,7 @@ export function Form({ onAddPerson }) {
           />
           Faktura VAT
         </label>
-        <input id="nip" /> */}
+        <input id="nip" />
 
         <div className="footer">
           <button>Dodaj</button>
