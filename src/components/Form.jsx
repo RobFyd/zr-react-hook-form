@@ -22,7 +22,7 @@ export function Form({ onAddPerson }) {
         <input
           id="name"
           {...register("name", {
-            required: { value: true, message: "To pole jest wymagane" },
+            required: "To pole jest wymagane",
           })}
         />
         {errors.name && <span className="error">{errors.name.message}</span>}
@@ -33,7 +33,7 @@ export function Form({ onAddPerson }) {
           type="number"
           {...register("age", {
             valueAsNumber: true,
-            required: { value: true, message: "To pole jest wymagane" },
+            required: "To pole jest wymagane",
             min: { value: 18, message: "Minimalny wiek to 18 lat" },
             max: { value: 120, message: "Maksymalny wiek to 120 lat" },
           })}
