@@ -70,11 +70,21 @@ export function Form({ onAddPerson }) {
           <input
             id="isInvoiceRequired"
             type="checkbox"
-            placeholder="Podaj NIP"
+            {...register("isInvoiceRequired")}
           />
           Faktura VAT
         </label>
-        <input id="nip" />
+        <input
+          id="nip"
+          placeholder="NIP"
+          {...register("nip", {
+            required: {
+              value: true,
+              message: "podaj fakture",
+            },
+          })}
+          type="number"
+        />
 
         <div className="footer">
           <button>Dodaj</button>
