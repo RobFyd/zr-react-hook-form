@@ -7,7 +7,10 @@ export function Form({ onAddPerson }) {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm();
+
+  console.log(watch("isInvoiceRequired"));
 
   function onSubmit(data) {
     console.log(data);
@@ -79,12 +82,13 @@ export function Form({ onAddPerson }) {
           placeholder="NIP"
           {...register("nip", {
             required: {
-              value: true,
+              value: watch("isInvoiceRequired"),
               message: "podaj fakture",
             },
           })}
           type="number"
         />
+        {errors.nip && <span className="error">{errors.nip.message}</span>}
 
         <div className="footer">
           <button>Dodaj</button>
