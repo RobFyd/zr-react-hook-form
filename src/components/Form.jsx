@@ -83,7 +83,7 @@ export function Form({ onAddPerson }) {
           {...register("nip", {
             required: {
               value: watch("isInvoiceRequired"),
-              message: "podaj fakture",
+              message: "podaj NIP",
             },
           })}
           type="number"
