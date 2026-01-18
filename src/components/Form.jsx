@@ -10,7 +10,7 @@ export function Form({ onAddPerson }) {
     watch,
   } = useForm();
 
-  console.log(watch("isInvoiceRequired"));
+  const isInvoiceRequired = watch("isInvoiceRequired");
 
   function onSubmit(data) {
     console.log(data);
@@ -82,10 +82,10 @@ export function Form({ onAddPerson }) {
           placeholder="NIP"
           {...register("nip", {
             required: {
-              value: watch("isInvoiceRequired"),
+              value: isInvoiceRequired,
               message: "podaj NIP",
             },
-            disabled: !watch("isInvoiceRequired"),
+            disabled: !isInvoiceRequired,
           })}
         />
         {errors.nip && <span className="error">{errors.nip.message}</span>}
