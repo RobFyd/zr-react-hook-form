@@ -85,8 +85,8 @@ export function Form({ onAddPerson }) {
               value: watch("isInvoiceRequired"),
               message: "podaj NIP",
             },
+            disabled: !watch("isInvoiceRequired"),
           })}
-          type="number"
         />
         {errors.nip && <span className="error">{errors.nip.message}</span>}
 
