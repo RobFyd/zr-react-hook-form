@@ -85,6 +85,10 @@ export function Form({ onAddPerson }) {
               value: isInvoiceRequired,
               message: "podaj NIP",
             },
+            pattern: {
+              value: /^[0-9]{10}$/,
+              message: "NIP musi składać się z 10 cyfr",
+            },
             disabled: !isInvoiceRequired,
           })}
         />
