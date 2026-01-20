@@ -13,8 +13,14 @@ export function Form({ onAddPerson }) {
   const isInvoiceRequired = watch("isInvoiceRequired");
 
   function onSubmit(data) {
-    console.log(data);
-    onAddPerson(data);
+    const { isInvoiceRequired, ...formData } = data;
+
+    if (!isInvoiceRequired) {
+      delete formData.nip;
+    }
+
+    console.log(formData);
+    onAddPerson(formData);
   }
 
   return (
