@@ -13,11 +13,16 @@ export function Form({ onAddPerson }) {
   const isInvoiceRequired = watch("isInvoiceRequired");
 
   function onSubmit(data) {
-    const { isInvoiceRequired, ...formData } = data;
+    const { isInvoiceRequired, tel, email, ...formData } = data;
 
     if (!isInvoiceRequired) {
       delete formData.nip;
     }
+
+    formData.contact = {
+      tel,
+      email,
+    };
 
     console.log(formData);
     onAddPerson(formData);

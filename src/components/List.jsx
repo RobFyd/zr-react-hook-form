@@ -6,7 +6,7 @@ export function List({ data }) {
       <h1>Lista osób:</h1>
       <ul>
         {data.map((person) => (
-          <li key={person.tel} className="person">
+          <li key={person.contact.tel} className="person">
             <span className="person-name">
               {person.name} <span className="person-age">({person.age})</span>
             </span>
