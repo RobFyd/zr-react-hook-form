@@ -10,8 +10,8 @@ export function List({ data }) {
             <span className="person-name">
               {person.name} <span className="person-age">({person.age})</span>
             </span>
-            <span className="person-tel">{person.tel}</span>
-            <span className="person-email">{person.email}</span>
+            <span className="person-tel">{person.contact.tel}</span>
+            <span className="person-email">{person.contact.email}</span>
             {person.nip && (
               <span className="person-nip">NIP: {person.nip}</span>
             )}
