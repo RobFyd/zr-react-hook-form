@@ -13,16 +13,11 @@ export function Form({ onAddPerson }) {
   const isInvoiceRequired = watch("isInvoiceRequired");
 
   function onSubmit(data) {
-    const { isInvoiceRequired, tel, email, ...formData } = data;
+    const { isInvoiceRequired, ...formData } = data;
 
     if (!isInvoiceRequired) {
       delete formData.nip;
     }
-
-    formData.contact = {
-      tel,
-      email,
-    };
 
     console.log(formData);
     onAddPerson(formData);
@@ -58,7 +53,7 @@ export function Form({ onAddPerson }) {
         <input
           id="tel"
           type="tel"
-          {...register("tel", {
+          {...register("contact.tel", {
             required: "To pole jest wymagane",
             pattern: {
               value: /^[+][0-9]{9,15}$/,
@@ -66,19 +61,23 @@ export function Form({ onAddPerson }) {
             },
           })}
         />
-        {errors.tel && <span className="error">{errors.tel.message}</span>}
+        {errors.contact?.tel && (
+          <span className="error">{errors.contact.tel.message}</span>
+        )}
 
         <label htmlFor="email">E-mail</label>
         <input
           id="email"
           type="email"
-          {...register("email", {
+          {...register("contact.email", {
             required: "To pole jest wymagane",
             validate: (email) =>
               email.includes("@") || "Nieprawidłowy format adresu e-mail",
           })}
         />
-        {errors.email && <span className="error">{errors.email.message}</span>}
+        {errors.contact?.email && (
+          <span className="error">{errors.contact.email.message}</span>
+        )}
 
         <label htmlFor="isInvoiceRequired">
           <input
