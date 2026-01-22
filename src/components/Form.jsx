@@ -6,11 +6,13 @@ export function Form({ onAddPerson }) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty },
     watch,
   } = useForm();
 
   const isInvoiceRequired = watch("isInvoiceRequired");
+
+  console.log("isDirty:", isDirty);
 
   function onSubmit(data) {
     const { isInvoiceRequired, ...formData } = data;
