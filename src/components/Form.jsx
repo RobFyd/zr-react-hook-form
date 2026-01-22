@@ -107,7 +107,7 @@ export function Form({ onAddPerson }) {
         {errors.nip && <span className="error">{errors.nip.message}</span>}
 
         <div className="footer">
-          <button>Dodaj</button>
+          <button disabled={!isDirty}>Dodaj</button>
         </div>
       </form>
     </>
