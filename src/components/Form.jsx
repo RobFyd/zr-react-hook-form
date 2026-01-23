@@ -10,16 +10,7 @@ export function Form({ onAddPerson }) {
     watch,
     reset,
   } = useForm({
-    defaultValues: {
-      name: "Robert",
-      age: "100",
-      contact: {
-        tel: "+48123456789",
-        email: "r@abcd",
-      },
-      isInvoiceRequired: false,
-      nip: "",
-    },
+    mode: "onChange",
   });
 
   const isInvoiceRequired = watch("isInvoiceRequired");
