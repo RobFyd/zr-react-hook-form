@@ -8,6 +8,7 @@ export function Form({ onAddPerson }) {
     handleSubmit,
     formState: { errors, isDirty, isSubmitSuccessful },
     watch,
+    reset,
   } = useForm();
 
   const isInvoiceRequired = watch("isInvoiceRequired");
@@ -26,7 +27,12 @@ export function Form({ onAddPerson }) {
   }
 
   if (isSubmitSuccessful) {
-    return <span className="title">Formularz został przesłany!</span>;
+    return (
+      <>
+        <span className="title">Formularz został przesłany!</span>
+        <button onClick={() => reset()}>Dodaj kolejną osobę</button>
+      </>
+    );
   }
 
   return (
