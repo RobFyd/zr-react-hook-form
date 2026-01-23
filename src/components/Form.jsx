@@ -6,7 +6,7 @@ export function Form({ onAddPerson }) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isDirty },
+    formState: { errors, isDirty, isSubmitSuccessful },
     watch,
   } = useForm();
 
@@ -23,6 +23,10 @@ export function Form({ onAddPerson }) {
 
     console.log(formData);
     onAddPerson(formData);
+  }
+
+  if (isSubmitSuccessful) {
+    return <span className="title">Formularz został przesłany!</span>;
   }
 
   return (
