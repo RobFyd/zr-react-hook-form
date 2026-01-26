@@ -10,7 +10,7 @@ export function Form({ onAddPerson }) {
     watch,
     reset,
   } = useForm({
-    mode: "onChange",
+    mode: "all",
   });
 
   const isInvoiceRequired = watch("isInvoiceRequired");
