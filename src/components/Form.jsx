@@ -9,9 +9,7 @@ export function Form({ onAddPerson }) {
     formState: { errors, isDirty, isSubmitSuccessful },
     watch,
     reset,
-  } = useForm({
-    mode: "all",
-  });
+  } = useForm();
 
   const isInvoiceRequired = watch("isInvoiceRequired");
 
