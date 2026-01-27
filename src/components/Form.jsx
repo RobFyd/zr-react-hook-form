@@ -9,6 +9,7 @@ export function Form({ onAddPerson }) {
     formState: { errors, isDirty, isSubmitSuccessful },
     watch,
     reset,
+    setError,
   } = useForm();
 
   const isInvoiceRequired = watch("isInvoiceRequired");
@@ -26,7 +27,7 @@ export function Form({ onAddPerson }) {
     try {
       onAddPerson(formData);
     } catch (error) {
-      alert(error);
+      setError("general");
     }
   }
 
@@ -121,6 +122,11 @@ export function Form({ onAddPerson }) {
         {errors.nip && <span className="error">{errors.nip.message}</span>}
 
         <div className="footer">
+          {errors.general && (
+            <span className="error">
+              Wystąpił błąd podczas przesyłania formularza.
+            </span>
+          )}
           <button disabled={!isDirty}>Dodaj</button>
         </div>
       </form>
