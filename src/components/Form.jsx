@@ -23,7 +23,11 @@ export function Form({ onAddPerson }) {
     }
 
     console.log(formData);
-    onAddPerson(formData);
+    try {
+      onAddPerson(formData);
+    } catch (error) {
+      alert(error);
+    }
   }
 
   if (isSubmitSuccessful) {
