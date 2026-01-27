@@ -27,7 +27,10 @@ export function Form({ onAddPerson }) {
     try {
       onAddPerson(formData);
     } catch (error) {
-      setError("general");
+      setError("general", {
+        message: "Coś poszło nie tak. Spróbuj ponownie.",
+        type: "custom",
+      });
     }
   }
 
@@ -123,9 +126,7 @@ export function Form({ onAddPerson }) {
 
         <div className="footer">
           {errors.general && (
-            <span className="error">
-              Wystąpił błąd podczas przesyłania formularza.
-            </span>
+            <span className="error">{errors.general.message}</span>
           )}
           <button disabled={!isDirty}>Dodaj</button>
         </div>

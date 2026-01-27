@@ -30,10 +30,9 @@ function App() {
   return (
     <div className="container">
       <Form
-        onAddPerson={(person) => {
-          // setPeople((prevPeople) => [person, ...prevPeople]);
-          throw new Error("backend error");
-        }}
+        onAddPerson={(person) =>
+          setPeople((prevPeople) => [person, ...prevPeople])
+        }
       />
       <List data={people} />
     </div>
