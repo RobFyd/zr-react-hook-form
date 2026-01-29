@@ -14,14 +14,14 @@ const initialPeople = [
     },
     nip: "0000000001",
   },
-  {
-    name: "Janina Kowalska",
-    age: 25,
-    contact: {
-      tel: "+48333222111",
-      email: "janina.kowalska@o2.com",
-    },
-  },
+  // {
+  //   name: "Janina Kowalska",
+  //   age: 25,
+  //   contact: {
+  //     tel: "+48333222111",
+  //     email: "janina.kowalska@o2.com",
+  //   },
+  // },
 ];
 
 function App() {
